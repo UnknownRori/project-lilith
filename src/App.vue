@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ScrollableBackgroundParent, ScrollableBackground } from '@/components/background';
+import { ScrollableBackgroundParent, ScrollableBackground, ParallaxCanvas } from '@/components/background';
 import { useVirtualScroll } from '@/composable/useVirtualScroll';
 import { useScrollStore } from '@/stores/ScrollStore';
 
@@ -12,10 +12,6 @@ useVirtualScroll((deltaY) => {
 
 <template>
   <div class="relative h-screen w-screen">
-    <ScrollableBackgroundParent>
-      <ScrollableBackground :offsetX='0' :offsetY='0' src="/assets/bg/sky.png" />
-      <ScrollableBackground :offsetX='0' :offsetY='500' src="/assets/bg/city.png" />
-      <ScrollableBackground :offsetX='0' :offsetY='500' src="/assets/bg/scene.png" />
-    </ScrollableBackgroundParent>
+    <ParallaxCanvas></ParallaxCanvas>
   </div>
 </template>
