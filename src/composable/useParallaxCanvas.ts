@@ -48,8 +48,15 @@ function draw(ctx: CanvasRenderingContext2D, img: ImageData[], camera: Camera2D,
     const imageHeight = image.image.height;
 
     const canvasRatio = width / height;
-    const sourceH = imageHeight;
-    const sourceW = imageHeight * canvasRatio;
+    const imageRatio = imageWidth / imageHeight;
+    let sourceW = 0, sourceH = 0;
+    if (canvasRatio > imageRatio) {
+      sourceW = imageWidth;
+      sourceH = imageWidth / canvasRatio;
+    } else {
+      sourceH = imageHeight;
+      sourceW = imageHeight * canvasRatio;
+    }
 
     ctx.drawImage(
       image.image,
