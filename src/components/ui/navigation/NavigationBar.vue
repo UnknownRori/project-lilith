@@ -29,7 +29,7 @@ const hamburgerButtonOpen = ref(false);
 
       <ul class="flex flex-row gap-4">
         <li :key='link.name' v-for='link in links'>
-          <Link :href='link.href' class='text-white'>
+          <Link :href='link.href' class='text-white font-bold'>
           {{ link.name }}
           </Link>
         </li>
