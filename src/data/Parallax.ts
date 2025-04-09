@@ -9,7 +9,7 @@ export const parallaxImageData = [
   {
     src: '/assets/bg/city.png',
     scrollSpeedX: 0,
-    scrollSpeedY: 0.5,
+    scrollSpeedY: 0.7,
   },
   {
     src: '/assets/bg/scene.png',
