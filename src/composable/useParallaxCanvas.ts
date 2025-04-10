@@ -68,7 +68,7 @@ export function useParallaxCanvas({ canvas, img, scene }: ParallaxParams) {
   watch(scroll, () => {
     if (!canvasHandler) return;
     canvasHandler.animateCamera({
-      y: scroll.position,
+      y: (scroll.position - 2000) * 0.7,
     })
   })
 
