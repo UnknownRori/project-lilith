@@ -1,4 +1,5 @@
 import type { ImageData, SceneData } from '@/models/Parallax.ts';
+import { animate } from 'animejs';
 
 export const parallaxImageData = [
   {
@@ -34,5 +35,8 @@ export const parallaxImageData = [
 ] as ImageData[];
 
 export const parallaxSceneData = [
-
+  {
+    start: 0,
+    end: 100,
+  }
 ] as SceneData[];

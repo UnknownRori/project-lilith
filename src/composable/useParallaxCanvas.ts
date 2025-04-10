@@ -1,29 +1,11 @@
 import { watch, onMounted, onUnmounted, type Ref } from 'vue';
-import { animate } from 'animejs';
 import type { ImageData, SceneData } from '@/models/Parallax.ts';
 import { useScrollStore } from "@/stores/ScrollStore.ts";
-
-// INFO : Internal types
-// ------------------------------------------------------------------------
-//
-interface Camera2D {
-  x: number,
-  y: number,
-  zoom: number,
-}
+import { Canvas } from '@/libs/canvas';
 
 // INFO : Utilty function used for the useParallaxCanvas
 // ------------------------------------------------------------------------
 
-function resizeCanvas(canvas: HTMLCanvasElement): [number, number] {
-  const width = window.innerWidth
-  const height = window.innerHeight
-
-  canvas.width = width
-  canvas.height = height
-
-  return [width, height];
-}
 function loadImages(layers: ImageData[]): Promise<void[]> {
   return Promise.all(layers.map(layer => {
     return new Promise<void>((resolve) => {
@@ -35,50 +17,6 @@ function loadImages(layers: ImageData[]): Promise<void[]> {
       }
     })
   }))
-}
-
-function draw(ctx: CanvasRenderingContext2D, img: ImageData[], camera: Camera2D, width: number, height: number) {
-  for (const image of img) {
-    if (!image.image) continue;
-
-    const offsetX = camera.x * image.scrollSpeedX;
-    const offsetY = camera.y * image.scrollSpeedY;
-
-    const imageWidth = image.image.width;
-    const imageHeight = image.image.height;
-
-    const canvasRatio = width / height;
-    const imageRatio = imageWidth / imageHeight;
-    let sourceW = 0, sourceH = 0;
-    if (canvasRatio > imageRatio) {
-      sourceW = imageWidth;
-      sourceH = imageWidth / canvasRatio;
-    } else {
-      sourceH = imageHeight;
-      sourceW = imageHeight * canvasRatio;
-    }
-
-    ctx.drawImage(
-      image.image,
-      offsetX + (imageWidth - sourceW) / 2.,
-      offsetY + (imageHeight - sourceH) / 2.,
-      sourceW, sourceH,
-      0, 0, width, height,
-    )
-  }
-}
-
-function drawVignette(ctx: CanvasRenderingContext2D, width: number, height: number) {
-  const gradient = ctx.createRadialGradient(
-    width / 2, height / 2, width / 4,
-    width / 2, height / 2, width / 1.2
-  );
-
-  gradient.addColorStop(0, 'rgba(0, 0, 0, 0)');
-  gradient.addColorStop(1, 'rgba(0, 0, 0, 1)');
-
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, width, height);
 }
 
 // INFO : useParallaxCanvas definition
@@ -93,50 +31,44 @@ interface ParallaxParams {
 export function useParallaxCanvas({ canvas, img, scene }: ParallaxParams) {
 
   const scroll = useScrollStore();
-
-  let width = 0, height = 0;
-  let ctx: CanvasRenderingContext2D | null;
-  const camera: Camera2D = {
-    x: 0,
-    y: 0,
-    zoom: 1,
-  };
-
-  const resizeCanvasFunction = () => {
-    [width, height] = resizeCanvas(canvas.value)
-  };
+  let canvasHandler: Canvas | null = null;
 
   function loop(_: number) {
-    if (!ctx) return;
+    if (!canvasHandler) return;
 
-    ctx.drawImage(img[0].image,
-      0, 0, width, height, 0, 0, width, height
-    );
-    draw(ctx, img, camera, width, height);
-    drawVignette(ctx, width, height);
+    canvasHandler.rawDraw(img[0], 0, 0, 1);
+    for (const image of img) {
+      canvasHandler.draw(image);
+    }
+    canvasHandler.drawVignette();
 
     requestAnimationFrame(loop);
   }
 
   onMounted(() => {
     (async () => {
-      ctx = canvas.value.getContext("2d");
-      [width, height] = resizeCanvas(canvas.value)
+      canvasHandler = new Canvas(canvas.value, {
+        x: 0,
+        y: -2000,
+        zoom: 1,
+      });
+      canvasHandler.init();
       await loadImages(img);
 
-      window.addEventListener('resize', resizeCanvasFunction);
       loop(0);
     })();
   })
 
   onUnmounted(() => {
-    window.removeEventListener('resize', resizeCanvasFunction);
+    if (!canvasHandler) return;
+
+    canvasHandler.dispose();
   })
 
   watch(scroll, () => {
-    animate(camera, {
+    if (!canvasHandler) return;
+    canvasHandler.animateCamera({
       y: scroll.position,
-      frameRate: 60,
     })
   })
 

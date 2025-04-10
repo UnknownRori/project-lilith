@@ -1,3 +1,5 @@
+import type { Camera2D } from "@/composable/useParallaxCanvas";
+
 export interface ImageData {
   src: string,
   scrollSpeedX: number,
@@ -8,7 +10,14 @@ export interface ImageData {
 export interface SceneData {
   start: number,
   end: number,
-  onScroll: (progress: number) => void,
+  startCamera: Camera2D,
+  endCamera: Camera2D,
   onEnter: () => void,
   onLeave: () => void,
+}
+
+export interface Camera2D {
+  x: number,
+  y: number,
+  zoom: number,
 }
