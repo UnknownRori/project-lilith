@@ -1,5 +1,6 @@
 import { animate } from 'animejs';
-import type { Camera2D, ImageData } from "@/models/Parallax";
+import type { Camera2D, ImageData, SceneData } from "@/models/Parallax";
+import { lerp } from '@/utils';
 
 export class Canvas {
   private canvas: HTMLCanvasElement;
@@ -24,11 +25,34 @@ export class Canvas {
   }
 
   public animateCamera(camera: Camera2D) {
-    camera.y = camera.y >= 0 ? 0 : camera.y;
     animate(this.camera, {
       ...this.camera,
       ...camera,
     });
+  }
+
+  public updateCameraBasedOnScene(scenes: SceneData[], scroll: number): boolean {
+    for (const scene of scenes) {
+      if ((scroll <= scene.start || scroll >= scene.end)) {
+        if (scene.active) {
+          if (scene.onLeave) scene.onLeave();
+          scene.active = false;
+        }
+        continue;
+      }
+
+      if (!scene.active && scene.onEnter) scene.onEnter();
+      scene.active = true;
+      const t = (scroll - scene.start) / (scene.end - scene.start);
+      if (scene.onUpdate) scene.onUpdate(t);
+      this.animateCamera({
+        x: lerp(scene.startCamera.x, scene.endCamera.x, t),
+        y: lerp(scene.startCamera.y, scene.endCamera.y, t),
+        zoom: lerp(scene.startCamera.zoom, scene.endCamera.zoom, t),
+      })
+      return true;
+    }
+    return false
   }
 
   public rawDraw(image: ImageData, x: number, y: number, zoom: number) {

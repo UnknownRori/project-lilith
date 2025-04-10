@@ -12,8 +12,10 @@ export interface SceneData {
   end: number,
   startCamera: Camera2D,
   endCamera: Camera2D,
-  onEnter: () => void,
-  onLeave: () => void,
+  active: boolean,
+  onEnter: () => void | null,
+  onUpdate: (progress: number) => void | null,
+  onLeave: () => void | null,
 }
 
 export interface Camera2D {
