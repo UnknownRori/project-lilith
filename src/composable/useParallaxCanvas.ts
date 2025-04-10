@@ -109,6 +109,9 @@ export function useParallaxCanvas({ canvas, img, scene }: ParallaxParams) {
   function loop(_: number) {
     if (!ctx) return;
 
+    ctx.drawImage(img[0].image,
+      0, 0, width, height, 0, 0, width, height
+    );
     draw(ctx, img, camera, width, height);
     drawVignette(ctx, width, height);
 

@@ -7,6 +7,21 @@ export const parallaxImageData = [
     scrollSpeedY: 0.2,
   },
   {
+    src: '/assets/bg/star.png',
+    scrollSpeedX: 0,
+    scrollSpeedY: 0.2,
+  },
+  {
+    src: '/assets/bg/low-sky.png',
+    scrollSpeedX: 0,
+    scrollSpeedY: 0.75,
+  },
+  {
+    src: '/assets/bg/moon.png',
+    scrollSpeedX: 0,
+    scrollSpeedY: 0.25,
+  },
+  {
     src: '/assets/bg/city.png',
     scrollSpeedX: 0,
     scrollSpeedY: 0.7,
