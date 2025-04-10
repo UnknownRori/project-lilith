@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import Link from './Link.vue';
+import NavLink from './NavLink.vue';
 import { Hamburger } from '@/components/ui/icons';
 
 const links = [
@@ -24,14 +24,14 @@ const hamburgerButtonOpen = ref(false);
 
 <template>
   <nav class="absolute w-full inset-0">
-    <div class="flex flex-row-reverse gap-8 p-4">
+    <div class="flex flex-row-reverse items-center gap-8 p-4">
       <Hamburger @click='() => hamburgerButtonOpen = !hamburgerButtonOpen' :isOpen='hamburgerButtonOpen' />
 
       <ul class="flex flex-row gap-4">
         <li :key='link.name' v-for='link in links'>
-          <Link :href='link.href' class='text-white font-bold'>
-          {{ link.name }}
-          </Link>
+          <NavLink :href='link.href' class='text-white text-lg lg:text-3xl font-bold'>
+            {{ link.name }}
+          </NavLink>
         </li>
       </ul>
 

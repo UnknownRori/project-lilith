@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { NavigationBar } from '@/components/ui/navigation';
-import { ScrollableBackgroundParent, ScrollableBackground, ParallaxCanvas } from '@/components/background';
+import { NavigationBar, Footer } from '@/components/ui/navigation';
+import { SettingsParent } from '@/components/ui/settings';
+import { ParallaxCanvas } from '@/components/background';
 import { useVirtualScroll } from '@/composable/useVirtualScroll';
 import { useScrollStore } from '@/stores/ScrollStore';
 
@@ -15,9 +16,13 @@ useVirtualScroll((deltaY) => {
   <div class="relative h-screen w-screen">
     <ParallaxCanvas />
     <NavigationBar />
+    <SettingsParent />
 
     <div>
       <slot />
     </div>
+
+    <Footer />
+
   </div>
 </template>
