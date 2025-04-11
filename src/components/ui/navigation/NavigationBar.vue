@@ -5,17 +5,17 @@ import { Hamburger } from '@/components/ui/icons';
 
 const links = [
   {
-    name: 'Home',
-    href: '/',
-  },
-  {
-    name: 'About Me',
-    href: '/about-me',
+    name: 'Profile',
+    href: '/profile',
   },
   {
     name: 'Projects',
     href: '/projects',
-  }
+  },
+  {
+    name: 'Resume',
+    href: '/resume',
+  },
 ]
 
 const hamburgerButtonOpen = ref(false);
