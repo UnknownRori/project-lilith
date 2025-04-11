@@ -10,12 +10,14 @@ defineProps<{
 
 <template>
   <div class="relative group font-poet">
-    <span :class="`absolute -bottom-1 left-0 z-10 h-[2px] w-0 bg-white dark:bg-white duration-500 ${isActive ? 'w-full ' : 'group-hover:w-full '
+    <span :class="`absolute -bottom-1 left-0 z-10 h-[2px] w-0 bg-white/20 dark:bg-white
+duration-500 ${isActive ? 'w-full bg-white ' : 'group-hover:w-full group-hover:bg-white '
       }`"></span>
     <Link :href="href" :class="`tracking dark:text-white ${isActive ? 'font-bold' : ''}`">
     <slot />
     </Link>
-    <span :class="`absolute -bottom-1 right-0 z-10 h-[2px] w-0 bg-white dark:bg-white duration-500 ${isActive ? 'w-full ' : 'group-hover:w-full '
+    <span :class="`absolute -bottom-1 right-0 z-10 h-[2px] w-0 bg-white/20 dark:bg-white
+duration-500 ${isActive ? 'w-full bg-white ' : 'group-hover:w-full group-hover:bg-white '
       }`"></span>
   </div>
 </template>

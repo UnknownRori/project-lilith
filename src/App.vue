@@ -11,8 +11,8 @@ import { ImageAngled, CardAngled } from '@/components/ui/angled';
       <ImageAngled src="assets/img/me.gif" class="sm:w-full sm:h-full md:w-[300px] md:h-full bg-white p-1" angle="5" />
       <div class="flex flex-col justify-between items-center sm:w-full md:w-[300px] h-full
         content-stretch py-8">
-        <CardAngled class="w-full bg-white p-1" angle="15">
-          <div class="flex flex-col gap-2 bg-gray-900 w-full h-full p-6 text-white font-bold
+        <CardAngled class="w-full after:bg-gray-900/50 border-white after:border-2">
+          <div class="flex flex-col gap-2 w-full h-full p-6 text-white font-bold
             text-center">
             <span class="text-2xl">
               UnknownRori
@@ -23,8 +23,8 @@ import { ImageAngled, CardAngled } from '@/components/ui/angled';
           </div>
         </CardAngled>
 
-        <CardAngled class="w-full bg-white p-1" angle="10">
-          <div class="flex flex-col gap-2 bg-gray-900 w-full h-full py-8 px-4 text-white font-bold
+        <CardAngled class="w-full after:bg-gray-900/50 border-white after:border-2">
+          <div class="flex flex-col gap-2 w-full h-full py-8 px-4 text-white font-bold
             text-center">
             <div class="flex gap-4">
               <Building2 class="text-white" />

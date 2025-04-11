@@ -21,10 +21,13 @@ watch(
 </script>
 
 <template>
-  <button class="flex flex-col gap-[5px]" @click="$emit('click')">
-    <span :class="cn('w-6 rounded-md bg-gray-200 py-[1.5px] duration-300', style, $props.isOpen ? 'w-10' : '')"></span>
-    <span :class="cn('w-8 rounded-md bg-gray-200 py-[1.5px] duration-300', style, $props.isOpen ? 'w-10' : '')"></span>
-    <span :class="cn('w-10 rounded-md bg-gray-200 py-[1.5px] duration-300', style, $props.isOpen ? 'w-10' : '')"></span>
+  <button class="group flex flex-col gap-[5px]" @click="$emit('click')">
+    <span
+      :class="cn('group-hover:bg-white w-6 rounded-md bg-white/20 py-[1.5px] duration-300', style, $props.isOpen ? 'w-10' : '')"></span>
+    <span
+      :class="cn('group-hover:bg-white w-8 rounded-md bg-white/20 py-[1.5px] duration-300', style, $props.isOpen ? 'w-10' : '')"></span>
+    <span
+      :class="cn('group-hover:bg-white w-10 rounded-md bg-white/20 py-[1.5px] duration-300', style, $props.isOpen ? 'w-10' : '')"></span>
   </button>
 </template>
 

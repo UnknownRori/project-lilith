@@ -1,19 +1,23 @@
 <script setup lang="ts">
 import { cn } from '@/utils';
-import CardAngled from './Card.vue';
 
 defineProps<{
   src: string,
   angle: string
   class?: string;
-  borderColor?: string;
-  borderWidth?: string;
 }>();
+
+const clipPath = (angle: number) =>
+  `polygon(0 0, 100% ${angle}%, 100% 100%, 0% ${100 - angle}%)`;
 
 </script>
 
 <template>
-  <CardAngled :angle='angle' :class='$props.class' :borderColor='borderColor' :borderWidth='borderWidth'>
-    <img :src="src" class="w-full h-full object-cover object-top" />
-  </CardAngled>
+  <div :class="cn('overflow-hidden', $props.class)" :style="{
+    clipPath: clipPath(angle),
+  }">
+    <div class="w-full h-full overflow-hidden" :style="{ backgroundColor: 'transparent', clipPath: clipPath(angle) }">
+      <img :src="src" class='object-cover object-top w-full h-full'>
+    </div>
+  </div>
 </template>

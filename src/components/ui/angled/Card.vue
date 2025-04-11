@@ -4,6 +4,7 @@ import { cn } from '@/utils';
 defineProps<{
   angle: string
   class?: string;
+  borderWidth?: string;
 }>();
 
 const clipPath = (angle: number) =>
@@ -11,11 +12,11 @@ const clipPath = (angle: number) =>
 </script>
 
 <template>
-  <div :class="cn('overflow-hidden', $props.class)" :style="{
-    clipPath: clipPath(angle),
-  }">
-    <div class="w-full h-full overflow-hidden" :style="{ backgroundColor: 'transparent', clipPath: clipPath(angle) }">
-      <slot />
-    </div>
+  <div :class="cn(`relative
+      after:absolute after:block after:top-0 after:left-0 after:w-full after:h-full after:bg-inherit
+      after:skew-y-[4deg] after:-z-1 after:border-inherit after:shadow-inherit
+`,
+    $props.class)">
+    <slot />
   </div>
 </template>
