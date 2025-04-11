@@ -30,7 +30,7 @@ const hamburgerButtonOpen = ref(false);
       <ul class="flex flex-row gap-4">
         <li :key='link.name' v-for='link in links'>
           <NavLink :href='link.href' class='text-white/20 hover:text-white sm:text:md md:text-lg
-            lg:text-3xl font-bold duration-300'>
+            lg:text-xl font-bold duration-300'>
             {{ link.name }}
           </NavLink>
         </li>

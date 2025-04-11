@@ -2,13 +2,9 @@
 import { cn } from '@/utils';
 
 defineProps<{
-  angle: string
   class?: string;
   borderWidth?: string;
 }>();
-
-const clipPath = (angle: number) =>
-  `polygon(0 0, 100% ${angle}%, 100% 100%, 0% ${100 - angle}%)`;
 </script>
 
 <template>

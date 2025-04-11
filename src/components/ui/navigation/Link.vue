@@ -4,8 +4,8 @@ defineProps<{
   class: string,
 }>();
 
-function click() {
-  // Redirect to something
+function click(event: Event) {
+  event.preventDefault();
   console.log("Link Clicked");
 }
 
