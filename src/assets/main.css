@@ -2,6 +2,12 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @font-face {
+    font-family: "Wallpoet";
+    src: url("$fonts/Wallpoet-Regular.ttf");
+    font-weight: normal;
+}
+
+@font-face {
     font-family: "ComicNeue";
     src: url("$fonts/ComicNeue-Regular.ttf");
     font-weight: normal;
@@ -35,4 +41,11 @@
 
 @theme {
   --font-sans: "ComicNeue", "sans-serif";
+  --font-poet: "Wallpoet", "sans-serif";
+
+  --breakpoint-sm: 280px;
+  --breakpoint-md: 720px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1920px;
+  --breakpoint-2xl: 2024;
 }

@@ -23,7 +23,7 @@ const hamburgerButtonOpen = ref(false);
 </script>
 
 <template>
-  <nav class="absolute w-full inset-0">
+  <nav class="absolute w-full inset-0 z-100">
     <div class="flex flex-row-reverse items-center gap-8 p-4">
       <Hamburger @click='() => hamburgerButtonOpen = !hamburgerButtonOpen' :isOpen='hamburgerButtonOpen' />
 
