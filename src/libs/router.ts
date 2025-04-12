@@ -23,7 +23,6 @@ export class Router {
   private routes: Route[];
   public currentRoute: Route;
   public currentComponent: unknown;
-  public oldComponent: unknown;
 
   constructor(routes: Route[]) {
     this.routes = routes;
@@ -43,7 +42,6 @@ export class Router {
       const scene = parallaxSceneData[route.keyframe];
       if (!scene) continue;
       if (scene.start <= scroll.position && scene.end >= scroll.position) {
-        this.oldComponent = this.currentComponent;
         this.currentComponent = route.view;
         this.currentRoute = route;
 
@@ -55,7 +53,6 @@ export class Router {
       }
     }
 
-    this.oldComponent = this.currentComponent;
     this.currentComponent = null;
     this.currentRoute = this.routes[0];
     const path = window.location.pathname;
@@ -70,7 +67,6 @@ export class Router {
     for (const route of this.routes) {
       if (route.resolve(path)) {
         const scroll = useScrollStore();
-        this.oldComponent = this.currentComponent;
         this.currentComponent = route.view;
         this.currentRoute = route;
         scroll.scrollTo(parallaxSceneData[route.keyframe].start);
@@ -89,7 +85,6 @@ export class Router {
     for (const route of this.routes) {
       if (route.resolve(path)) {
         const scroll = useScrollStore();
-        this.oldComponent = this.currentComponent;
         this.currentComponent = route.view;
         this.currentRoute = route;
         scroll.scrollTo(parallaxSceneData[route.keyframe].start);
@@ -98,7 +93,6 @@ export class Router {
       }
     }
 
-    this.oldComponent = this.currentComponent;
     this.currentComponent = null;
     window.history.pushState('', '', path);
   }

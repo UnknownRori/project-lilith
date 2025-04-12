@@ -7,12 +7,10 @@ defineProps<{
 
 <template>
   <div class="absolute w-screen h-screen">
-    <component :is='$props.router.currentComponent' />
+    <Transition>
+      <component :is='$props.router.currentComponent' />
+    </Transition>
   </div>
-
-  <Transition>
-    <component :is='$props.router.oldComponent' />
-  </Transition>
 </template>
 
 <style scoped>
