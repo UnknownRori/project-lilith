@@ -7,16 +7,26 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    vue(),
-    vueDevTools(),
-    tailwindcss(),
-  ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-      $fonts: path.resolve('./public/assets/fonts/'),
+export default defineConfig(({ command }) => {
+  const base =
+  {
+    plugins: [
+      vue(),
+      vueDevTools(),
+      tailwindcss(),
+    ],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        $fonts: path.resolve('./public/assets/fonts/'),
+      },
     },
-  },
+  };
+  if (command == 'serve') {
+    return base;
+  }
+  return {
+    base: '/project-lilith/',
+    ...base
+  };
 })

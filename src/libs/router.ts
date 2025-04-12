@@ -32,6 +32,10 @@ export class Router {
 
   }
 
+  public getKeyFrame() {
+    return this.currentRoute.keyframe;
+  }
+
   public refreshScroll() {
     const scroll = useScrollStore();
 
@@ -45,13 +49,19 @@ export class Router {
 
         const path = window.location.pathname;
         if (this.currentRoute.path != path) {
-          window.history.pushState('', '', path);
+          window.history.pushState('', '', this.currentRoute.path);
         }
         return;
       }
     }
+
     this.oldComponent = this.currentComponent;
     this.currentComponent = null;
+    this.currentRoute = this.routes[0];
+    const path = window.location.pathname;
+    if (this.currentRoute.path != path) {
+      window.history.pushState('', '', this.currentRoute.path);
+    }
   }
 
 
@@ -59,12 +69,15 @@ export class Router {
     const path = window.location.pathname;
     for (const route of this.routes) {
       if (route.resolve(path)) {
+        const scroll = useScrollStore();
         this.oldComponent = this.currentComponent;
         this.currentComponent = route.view;
         this.currentRoute = route;
+        scroll.scrollTo(parallaxSceneData[route.keyframe].start);
         return;
       }
     }
+    this.currentRoute = this.routes[0];
     return null
   }
 

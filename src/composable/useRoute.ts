@@ -7,9 +7,18 @@ const route = ref<Router | null>(null);
 
 export default function useRoute(): Ref<Router> {
   if (route.value == null) {
-    route.value = new Router(router)
     const scroll = useScrollStore();
-    scroll.$subscribe(() => route.value?.refreshScroll());
+    route.value = new Router(router);
+    scroll.$onAction(({ name, after }) => {
+      after(() => {
+        if (name == 'scrollBy') {
+          route.value?.refreshScroll();
+        }
+      })
+    })
+    window.onpopstate = () => {
+      route.value?.refresh();
+    }
   }
 
   route.value.refresh();
