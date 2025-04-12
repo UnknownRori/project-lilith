@@ -22,7 +22,7 @@ export function useVirtualScroll(handler: (deltaY: number) => void) {
         const current = e.touches[0].clientY;
         const delta = lastTouchY - current;
         lastTouchY = current;
-        handler(delta);
+        handler(delta * 2);
       }
     });
     window.addEventListener('touchend', (e) => {

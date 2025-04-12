@@ -6,7 +6,9 @@ defineProps<{
 </script>
 
 <template>
-  <component :is='$props.router.currentComponent' />
+  <div class="absolute w-screen h-screen">
+    <component :is='$props.router.currentComponent' />
+  </div>
 
   <Transition>
     <component :is='$props.router.oldComponent' />
