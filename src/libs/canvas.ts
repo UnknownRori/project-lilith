@@ -38,16 +38,13 @@ export class Canvas {
     for (const scene of scenes) {
       if ((scroll <= scene.start || scroll >= scene.end)) {
         if (scene.active) {
-          if (scene.onLeave) scene.onLeave();
           scene.active = false;
         }
         continue;
       }
 
-      if (!scene.active && scene.onEnter) scene.onEnter();
       scene.active = true;
       const t = (scroll - scene.start) / (scene.end - scene.start);
-      if (scene.onUpdate) scene.onUpdate(t);
       this.animateCamera({
         x: lerp(scene.startCamera.x, scene.endCamera.x, t),
         y: lerp(scene.startCamera.y, scene.endCamera.y, t),

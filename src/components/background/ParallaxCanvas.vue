@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import { useParallaxCanvas } from '@/composable/useParallaxCanvas.ts';
 import { parallaxImageData, parallaxSceneData } from '@/data/Parallax.ts';
 
-const canvasRef = ref(null);
+const canvasRef = ref<HTMLCanvasElement | null>(null);
 
 useParallaxCanvas({
-  canvas: canvasRef,
+  canvas: canvasRef as Ref<HTMLCanvasElement>,
   img: parallaxImageData,
   scene: parallaxSceneData,
 });

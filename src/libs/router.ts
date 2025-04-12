@@ -42,7 +42,6 @@ export class Router {
         this.oldComponent = this.currentComponent;
         this.currentComponent = route.view;
         this.currentRoute = route;
-        console.log(route);
 
         const path = window.location.pathname;
         if (this.currentRoute.path != path) {

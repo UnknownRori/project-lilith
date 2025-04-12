@@ -3,7 +3,7 @@ import { cn } from '@/utils';
 
 defineProps<{
   src: string,
-  angle: string
+  angle: number
   class?: string;
 }>();
 

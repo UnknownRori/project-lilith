@@ -1,4 +1,4 @@
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, type Ref, onMounted, onUnmounted } from 'vue';
 import moment from "moment";
 
 type RealtimeClockOpts = {
@@ -16,7 +16,7 @@ export default function(opts?: RealtimeClockOpts): Ref<string> {
   onMounted(() => {
     clockEventId = setInterval(() => {
       clock.value = moment().utc().utcOffset(utcOffset).format(format);
-    }, 1000) as any as number;
+    }, 1000) as unknown as number;
   });
 
   onUnmounted(() => {
