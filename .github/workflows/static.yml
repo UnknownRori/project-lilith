@@ -33,9 +33,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Node.js environment
         uses: actions/setup-node@v4.3.0
+      - name: Install Package
+        run: npm install
       - name: Build Dist
-      # You may pin to the exact commit or the version.
-      # uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
         run: npm run build
               
       - name: Setup Pages
