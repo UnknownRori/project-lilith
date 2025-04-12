@@ -1,12 +1,15 @@
 <script setup lang="ts">
-defineProps<{
+import useRoute from '@/composable/useRoute.ts';
+const props = defineProps<{
   href: string,
   class: string,
 }>();
 
+const router = useRoute();
+
 function click(event: Event) {
   event.preventDefault();
-  console.log("Link Clicked");
+  router.value.go(props.href);
 }
 
 </script>

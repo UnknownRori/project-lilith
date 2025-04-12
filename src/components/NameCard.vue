@@ -9,8 +9,11 @@ import { CardAngled } from '@/components/ui/angled';
       <span class="text-2xl">
         Akbar Hendra Jaya
       </span>
+      <span class="italic text-md">
+        @UnknownRori / Lilith Itou
+      </span>
       <span class="italic text-sm">
-        @UnknownRori / Lilith Itou (リリス 伊藤)
+        Web Dev, Game Dev, Pixel Artist, VGM Composer
       </span>
     </div>
   </CardAngled>

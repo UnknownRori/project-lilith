@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+
+import useRoute from '@/composable/useRoute.ts';
 import NavLink from './NavLink.vue';
+import { cn } from '@/utils';
 import { Hamburger } from '@/components/ui/icons';
 
 const links = [
@@ -19,6 +22,7 @@ const links = [
 ]
 
 const hamburgerButtonOpen = ref(false);
+const route = useRoute();
 
 </script>
 
@@ -29,8 +33,8 @@ const hamburgerButtonOpen = ref(false);
 
       <ul class="flex flex-row gap-4">
         <li :key='link.name' v-for='link in links'>
-          <NavLink :href='link.href' class='text-white/20 hover:text-white sm:text:md md:text-lg
-            lg:text-xl font-bold duration-300'>
+          <NavLink :href='link.href' :class='cn(`text-white/20 hover:text-white sm:text:md md:text-lg
+            lg:text-xl font-bold duration-300`)' :isActive='route.isActive(link.href)'>
             {{ link.name }}
           </NavLink>
         </li>

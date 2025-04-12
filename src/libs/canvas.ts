@@ -5,23 +5,26 @@ import { lerp } from '@/utils';
 export class Canvas {
   private canvas: HTMLCanvasElement;
   private ctx: CanvasRenderingContext2D;
+
   private width: number = 0;
   private height: number = 0;
   private camera: Camera2D;
+  private resizeCanvas: () => void;
 
   constructor(canvas: HTMLCanvasElement, camera: Camera2D) {
     this.canvas = canvas;
     this.ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
     this.camera = camera;
     this._resizeCanvas();
+    this.resizeCanvas = () => this._resizeCanvas();
   }
 
   public init() {
-    window.addEventListener('resize', this._resizeCanvas);
+    window.addEventListener('resize', this.resizeCanvas);
   }
 
   public dispose() {
-    window.removeEventListener('resize', this._resizeCanvas);
+    window.removeEventListener('resize', this.resizeCanvas);
   }
 
   public animateCamera(camera: Camera2D) {

@@ -67,7 +67,7 @@ export function useParallaxCanvas({ canvas, img, scene }: ParallaxParams) {
 
   watch(scroll, () => {
     if (!canvasHandler) return;
-    if (!canvasHandler.updateCameraBasedOnScene(scene, scroll.position * 0.5)) {
+    if (!canvasHandler.updateCameraBasedOnScene(scene, scroll.position)) {
       scroll.revert();
     }
   })

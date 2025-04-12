@@ -37,7 +37,7 @@ export const parallaxImageData = [
 export const parallaxSceneData = [
   {
     start: 0,
-    end: 200,
+    end: 1500,
     startCamera: {
       x: 0,
       y: -2000,
@@ -50,8 +50,8 @@ export const parallaxSceneData = [
     },
   },
   {
-    start: 200,
-    end: 600,
+    start: 1500,
+    end: 2500,
     startCamera: {
       x: 0,
       y: 0,
@@ -64,8 +64,8 @@ export const parallaxSceneData = [
     },
   },
   {
-    start: 600,
-    end: 900,
+    start: 2500,
+    end: 3000,
     startCamera: {
       x: 0,
       y: 0,
@@ -78,12 +78,26 @@ export const parallaxSceneData = [
     },
   },
   {
-    start: 900,
-    end: 1300,
+    start: 3000,
+    end: 4000,
     startCamera: {
       x: 0,
       y: 0,
       zoom: 1,
+    },
+    endCamera: {
+      x: 200,
+      y: 280,
+      zoom: 2,
+    },
+  },
+  {
+    start: 4000,
+    end: 5500,
+    startCamera: {
+      x: 200,
+      y: 280,
+      zoom: 2,
     },
     endCamera: {
       x: 200,

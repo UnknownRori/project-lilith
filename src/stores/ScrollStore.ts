@@ -6,6 +6,10 @@ export const useScrollStore = defineStore('scroll', {
     oldPosition: 0,
   }),
   actions: {
+    scrollTo(newPos: number) {
+      this.oldPosition = this.position;
+      this.position = newPos
+    },
     scrollBy(delta: number) {
       this.oldPosition = this.position;
       this.position += delta
