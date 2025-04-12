@@ -26,7 +26,6 @@ export default defineConfig(({ command }) => {
     return base;
   }
   return {
-    base: '/project-lilith/',
     ...base
   };
 })
