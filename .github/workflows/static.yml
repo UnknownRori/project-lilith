@@ -31,16 +31,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup pnpm
-      # You may pin to the exact commit or the version.
-      # uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
-        uses: pnpm/action-setup@v4.1.0
-        with:
-          run_install: true
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4.3.0
       - name: Build Dist
       # You may pin to the exact commit or the version.
       # uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda
-        run: pnpm run build
+        run: npm run build
               
       - name: Setup Pages
         uses: actions/configure-pages@v5
