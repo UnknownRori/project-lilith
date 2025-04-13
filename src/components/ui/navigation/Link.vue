@@ -9,7 +9,7 @@ const router = useRoute();
 
 function click(event: Event) {
   event.preventDefault();
-  router.value.go(props.href);
+  router.go(props.href);
 }
 
 </script>

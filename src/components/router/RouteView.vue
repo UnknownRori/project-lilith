@@ -8,7 +8,7 @@ defineProps<{
 <template>
   <div class="absolute w-screen h-screen">
     <Transition>
-      <component :is='$props.router.currentComponent' />
+      <component :is='$props.router.currentComponent.value' />
     </Transition>
   </div>
 </template>

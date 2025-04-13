@@ -62,38 +62,37 @@ export class Router {
   }
 
 
-  public refresh() {
+  // Return the correct scroll
+  public refresh(): number | null {
     const path = window.location.pathname;
     for (const route of this.routes) {
       if (route.resolve(path)) {
-        const scroll = useScrollStore();
         this.currentComponent = route.view;
         this.currentRoute = route;
-        scroll.scrollTo(parallaxSceneData[route.keyframe].start);
-        return;
+        return parallaxSceneData[route.keyframe].start;
       }
     }
     this.currentRoute = this.routes[0];
     return null
   }
 
-  public isActive(href: string) {
+  public isActive(href: string): boolean {
     return this.currentRoute.resolve(href);
   }
 
-  public go(path: string) {
+  // Return the correct scroll
+  public go(path: string): number | null {
     for (const route of this.routes) {
       if (route.resolve(path)) {
-        const scroll = useScrollStore();
         this.currentComponent = route.view;
         this.currentRoute = route;
-        scroll.scrollTo(parallaxSceneData[route.keyframe].start);
         window.history.pushState('', '', path);
-        return;
+        return parallaxSceneData[route.keyframe].start;
       }
     }
 
     this.currentComponent = null;
     window.history.pushState('', '', path);
+    return null;
   }
 }

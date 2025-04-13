@@ -11,8 +11,10 @@ export const useScrollStore = defineStore('scroll', {
       this.position = newPos
     },
     scrollBy(delta: number) {
-      this.oldPosition = this.position;
-      this.position += delta
+      if (this.position + delta >= 0) {
+        this.oldPosition = this.position;
+        this.position += delta
+      }
     },
     revert() {
       this.position = this.oldPosition;
