@@ -19,7 +19,7 @@ onMounted(() => {
   <div class="relative flex flex-col justify-around items-center h-screen py-18 gap-4
     md:px-4 lg:px-12">
 
-    <div class="relative sm:hidden md:flex w-full justify-center items-center">
+    <div class="relative sm:hidden md:flex sm:w-full md:w-[70%] justify-center items-center">
       <span :class="cn('block bg-white w-0 h-[2px] duration-1000', isMounted ? 'w-full' : '')"></span>
       <span class="px-4"></span>
       <span :class="cn('block bg-white w-0 h-[2px] duration-1000', isMounted ? 'w-full' : '')"></span>
@@ -35,7 +35,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div class="relative sm:hidden md:flex w-full justify-center items-center">
+    <div class="relative sm:hidden md:flex sm:w-full md:w-[70%] justify-center items-center">
       <span :class="cn('block bg-white w-0 h-[2px] duration-1000', isMounted ? 'w-full' : '')"></span>
       <span class="px-4"></span>
       <span :class="cn('block bg-white w-0 h-[2px] duration-1000', isMounted ? 'w-full' : '')"></span>
