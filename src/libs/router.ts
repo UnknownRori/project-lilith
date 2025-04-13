@@ -67,6 +67,7 @@ export class Router {
   // Return the correct scroll
   public refresh(): number | null {
     const path = window.location.pathname;
+    // TODO : refactor this
     for (const route of this.routes) {
       if (route.resolve(path)) {
         this.currentComponent = route.view;
@@ -74,6 +75,15 @@ export class Router {
         return parallaxSceneData[route.keyframe].start;
       }
     }
+
+    for (const route of this.routes) {
+      if (route.name == "404") {
+        this.currentComponent = route.view;
+        this.currentRoute = route;
+        return parallaxSceneData[route.keyframe].start;
+      }
+    }
+
     this.currentRoute = this.routes[0];
     return null
   }
