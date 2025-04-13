@@ -41,11 +41,12 @@ export class Router {
     for (const route of this.routes) {
       const scene = parallaxSceneData[route.keyframe];
       if (!scene) continue;
-      if (scene.start <= scroll.position && scene.end >= scroll.position) {
+      if (scene.start < scroll.position && scene.end > scroll.position) {
         this.currentComponent = route.view;
         this.currentRoute = route;
 
         const path = window.location.pathname;
+        document.title = this.currentRoute.name;
         if (this.currentRoute.path != path) {
           window.history.pushState('', '', this.currentRoute.path);
         }
@@ -56,6 +57,7 @@ export class Router {
     this.currentComponent = null;
     this.currentRoute = this.routes[0];
     const path = window.location.pathname;
+    document.title = this.currentRoute.name;
     if (this.currentRoute.path != path) {
       window.history.pushState('', '', this.currentRoute.path);
     }
@@ -87,11 +89,13 @@ export class Router {
         this.currentComponent = route.view;
         this.currentRoute = route;
         window.history.pushState('', '', path);
+        document.title = this.currentRoute.name;
         return parallaxSceneData[route.keyframe].start;
       }
     }
 
     this.currentComponent = null;
+    document.title = "404";
     window.history.pushState('', '', path);
     return null;
   }

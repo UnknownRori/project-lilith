@@ -1,7 +1,7 @@
 <script setup lang='ts'>
-import { Router } from "@/libs/router";
+import type { useRouteReturn } from "@/composable/useRoute.ts";
 defineProps<{
-  router: Router
+  router: useRouteReturn
 }>();
 </script>
 

@@ -2,14 +2,13 @@ import { reactive, computed, type ComputedRef } from 'vue';
 import { Route, Router } from "@/libs/router";
 import router from '@/router';
 import { useScrollStore } from '@/stores/ScrollStore';
-import { parallaxSceneData } from '@/data/Parallax';
 
 const route = reactive(new Router(router));
 let init = false;
 
 export interface useRouteReturn {
-  getActiveRoute: () => Route,
   currentComponent: ComputedRef<unknown>,
+  getActiveRoute: () => Route,
   go: (path: string) => void,
   isActive: (path: string) => boolean,
 }

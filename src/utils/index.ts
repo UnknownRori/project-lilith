@@ -8,3 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 export function lerp(start: number, end: number, t: number): number {
   return start + (end - start) * t
 }
+
+export function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}

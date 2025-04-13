@@ -36,7 +36,7 @@ export class Canvas {
 
   public updateCameraBasedOnScene(scenes: SceneData[], scroll: number): boolean {
     for (const scene of scenes) {
-      if ((scroll <= scene.start || scroll >= scene.end)) {
+      if ((scroll < scene.start || scroll > scene.end)) {
         if (scene.active) {
           scene.active = false;
         }
