@@ -35,6 +35,10 @@ export class Router {
     return this.currentRoute.keyframe;
   }
 
+  public changeTitle(newTitle: string) {
+    document.title = `${newTitle} - UnknownRori's Portfolio`;
+  }
+
   public refreshScroll() {
     const scroll = useScrollStore();
 
@@ -46,7 +50,7 @@ export class Router {
         this.currentRoute = route;
 
         const path = window.location.pathname;
-        document.title = this.currentRoute.name;
+        this.changeTitle(this.currentRoute.name);
         if (this.currentRoute.path != path) {
           window.history.pushState('', '', this.currentRoute.path);
         }
@@ -80,6 +84,7 @@ export class Router {
       if (route.name == "404") {
         this.currentComponent = route.view;
         this.currentRoute = route;
+        this.changeTitle(this.currentRoute.name);
         return parallaxSceneData[route.keyframe].start;
       }
     }
@@ -99,13 +104,13 @@ export class Router {
         this.currentComponent = route.view;
         this.currentRoute = route;
         window.history.pushState('', '', path);
-        document.title = this.currentRoute.name;
+        this.changeTitle(this.currentRoute.name);
         return parallaxSceneData[route.keyframe].start;
       }
     }
 
     this.currentComponent = null;
-    document.title = "404";
+    this.changeTitle(this.currentRoute.name);
     window.history.pushState('', '', path);
     return null;
   }

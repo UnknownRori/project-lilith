@@ -3,6 +3,7 @@ import { cn } from '@/utils';
 
 defineProps<{
   src: string,
+  alt: string,
   angle: number
   class?: string;
 }>();
@@ -17,7 +18,7 @@ const clipPath = (angle: number) =>
     clipPath: clipPath(angle),
   }">
     <div class="w-full h-full overflow-hidden" :style="{ backgroundColor: 'transparent', clipPath: clipPath(angle) }">
-      <img :src="src" class='object-cover object-top w-full h-full'>
+      <img :src="src" :alt='alt' class='object-cover object-top w-full h-full'>
     </div>
   </div>
 </template>
