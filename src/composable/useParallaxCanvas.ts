@@ -2,6 +2,7 @@ import { watch, onMounted, onUnmounted, type Ref } from 'vue';
 import type { ImageData, SceneData } from '@/models/Parallax.ts';
 import { useScrollStore } from "@/stores/ScrollStore.ts";
 import { Canvas } from '@/libs/canvas';
+import useRoute from './useRoute';
 
 // INFO : Utilty function used for the useParallaxCanvas
 // ------------------------------------------------------------------------
@@ -46,12 +47,19 @@ export function useParallaxCanvas({ canvas, img, scene }: ParallaxParams) {
   }
 
   onMounted(() => {
+    if (canvasHandler != null) return;
     (async () => {
-      canvasHandler = new Canvas(canvas.value, {
+      const camera = {
         x: 0,
         y: -2000,
         zoom: 1,
-      });
+      };
+
+      const routeIndex = useRoute().getActiveRoute().keyframe;
+      if (scene[routeIndex]) {
+        scroll.scrollTo(scene[routeIndex].start);
+      }
+      canvasHandler = new Canvas(canvas.value, camera);
       canvasHandler.init();
       await loadImages(img);
 
