@@ -13,7 +13,7 @@ useVirtualScroll((deltaY) => {
 </script>
 
 <template>
-  <div class="relative h-screen w-screen">
+  <div class="relative h-screen w-screen overflow-hidden">
     <ParallaxCanvas />
     <NavigationBar />
     <SettingsParent />
