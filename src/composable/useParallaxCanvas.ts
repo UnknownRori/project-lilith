@@ -1,5 +1,5 @@
-import { watch, onMounted, onUnmounted, type Ref } from 'vue';
-import type { ImageData, SceneData } from '@/models/Parallax.ts';
+import { onMounted, onUnmounted, type Ref } from 'vue';
+import type { ImageData, SceneData } from '@/models/Parallax';
 import { useScrollStore } from "@/stores/ScrollStore.ts";
 import { Canvas } from '@/libs/canvas';
 import useRoute from './useRoute';
