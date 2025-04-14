@@ -37,7 +37,7 @@ export const projectLists = [
     type: 'app',
     tags: ['Flutter', 'Mobile', 'Multi-platform'],
 
-    imgUrl: 'https://github.com/UnknownRori/touhourad',
+    imgUrl: 'https://raw.githubusercontent.com/UnknownRori/touhourad/main/screenshot/Screenshot_20240921-161100.png',
     sourceUrl: 'https://github.com/UnknownRori/touhourad',
     previewUrl: null,
   },
