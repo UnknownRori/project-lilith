@@ -61,11 +61,11 @@
 }
 
 .v-enter-active {
-  animation: BlinkIn 0.4s ease-in-out;
+  animation: BlinkIn 0.5s ease-in-out;
 }
 
 .v-leave-active {
-  animation: BlinkOut 0.4s ease-in-out;
+  animation: BlinkOut 0.5s ease-in-out;
 }
 
 .v-enter-to,

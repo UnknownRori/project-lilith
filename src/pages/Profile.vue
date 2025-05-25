@@ -9,7 +9,7 @@ import {
 </script>
 
 <template>
-  <div class="relative flex flex-col justify-around items-center h-screen py-18 gap-4
+  <div class="absolute w-screen h-screen inset-0 flex flex-col justify-around items-center py-18 gap-4
     md:px-4 lg:px-12">
 
     <div class="relative flex sm:flex-col md:flex-row justify-around items-center w-full h-full">

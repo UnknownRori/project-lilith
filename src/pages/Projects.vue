@@ -7,7 +7,7 @@ import {
 </script>
 
 <template>
-  <div class="relative flex w-screen h-screen justify-center items-center sm:px-4 sm:py-24 md:p-24">
+  <div class="absolute inset-0 flex w-screen h-screen justify-center items-center sm:px-4 sm:py-24 md:p-24">
     <Card class="flex flex-col gap-4 w-full h-full overflow-scroll">
       <div :key='data.name' v-for='data in projectLists' class="flex sm:flex-col lg:flex-row gap-4
         items-stretch">

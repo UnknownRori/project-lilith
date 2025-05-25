@@ -2,14 +2,24 @@ import type { Project } from "@/models/Projects";
 
 export const projectLists = [
   {
-    name: 'Project Ἔρεβος',
-    description: 'Math Resolver in C++',
-    type: 'app',
-    tags: ['Math', 'Shunting Yard', 'C++', 'Raylib', 'Web Assembly', 'Emscripten'],
+    name: 'Escape Velocity',
+    description: 'Vertical Scrolling shooting game',
+    type: 'game',
+    tags: ['Game', 'Raylib', 'Web', 'Web Assembly'],
 
-    imgUrl: 'https://raw.githubusercontent.com/UnknownRori/project-erebus/main/screenshot/screenshot-1.png',
-    sourceUrl: 'https://github.com/UnknownRori/project-erebus',
-    previewUrl: 'https://unknownrori.github.io/project-erebus/',
+    imgUrl: 'https://img.itch.zone/aW1nLzIwMTEzMjYwLmdpZg==/original/zVDrOp.gif',
+    sourceUrl: null,
+    previewUrl: 'https://unknownrori.itch.io/escape-velocity',
+  },
+  {
+    name: 'Rin',
+    description: 'Minimalistic PHP Framework inspired by Laravel elegantess',
+    type: 'web',
+    tags: ['Web', 'PHP', 'Framework'],
+
+    imgUrl: 'https://opengraph.githubassets.com/220e217e0f31a920a690f709c3ad7a05f57eb373407557687f3f99c846d0c155/UnknownRori/rin',
+    sourceUrl: 'https://github.com/UnknownRori/Rin',
+    previewUrl: null,
   },
   {
     name: 'CLI Video Player',
@@ -22,6 +32,16 @@ export const projectLists = [
     previewUrl: 'https://youtu.be/1PNJHKkE3QI?si=rDZZ2hwC7u1l7Krp',
   },
   {
+    name: 'Monas Jas Hujan - Project Kurenai',
+    description: 'Company website',
+    type: 'web',
+    tags: ['Web', 'SSR', 'Laravel', 'Bootstrap'],
+
+    imgUrl: '/image/1745666623750.jpg',
+    sourceUrl: null,
+    previewUrl: 'https://monasjashujan.com/',
+  },
+  {
     name: 'Touhou Unfinished Matrix Dream',
     description: 'Touhou Gameboy Cover',
     type: 'music',
@@ -32,36 +52,6 @@ export const projectLists = [
     previewUrl: 'https://open.spotify.com/album/1XOjB6SruP6ZhWjGJ6SSls',
   },
   {
-    name: 'TouhouRad',
-    description: 'Multi-Platform Touhou Music Player',
-    type: 'app',
-    tags: ['Flutter', 'Mobile', 'Multi-platform'],
-
-    imgUrl: 'https://raw.githubusercontent.com/UnknownRori/touhourad/main/screenshot/Screenshot_20240921-161100.png',
-    sourceUrl: 'https://github.com/UnknownRori/touhourad',
-    previewUrl: null,
-  },
-  {
-    name: 'Nordland - ᚾᛟᚱᛞᛚᚨᚾᛞ',
-    description: 'Orchestra style',
-    type: 'music',
-    tags: ['Music', 'Orchestra', 'VGM'],
-
-    imgUrl: 'https://img.itch.zone/aW1nLzIwMTQ5ODA5LmdpZg==/original/Ir59NF.gif',
-    sourceUrl: null,
-    previewUrl: 'https://unknownrori.itch.io/nordland',
-  },
-  {
-    name: 'Escape Velocity',
-    description: 'Vertical Scrolling shooting game',
-    type: 'game',
-    tags: ['Game', 'Raylib', 'Web', 'Web Assembly'],
-
-    imgUrl: 'https://img.itch.zone/aW1nLzIwMTEzMjYwLmdpZg==/original/zVDrOp.gif',
-    sourceUrl: null,
-    previewUrl: 'https://unknownrori.itch.io/escape-velocity',
-  },
-  {
     name: 'Schmhotel',
     description: 'Hotel reservation app',
     type: 'web',
@@ -69,6 +59,16 @@ export const projectLists = [
 
     imgUrl: 'https://user-images.githubusercontent.com/68576836/267157350-6380e0ca-3bd0-4342-a514-584cd135b782.png',
     sourceUrl: 'https://github.com/UnknownRori/reservation-room-app',
+    previewUrl: null,
+  },
+  {
+    name: 'TouhouRad',
+    description: 'Multi-Platform Touhou Music Player',
+    type: 'app',
+    tags: ['Flutter', 'Mobile', 'Multi-platform'],
+
+    imgUrl: 'https://raw.githubusercontent.com/UnknownRori/touhourad/main/screenshot/Screenshot_20240921-161100.png',
+    sourceUrl: 'https://github.com/UnknownRori/touhourad',
     previewUrl: null,
   },
 ] as Project[];

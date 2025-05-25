@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-
 import NavLink from './NavLink.vue';
 import { cn } from '@/utils';
 //import { Hamburger } from '@/components/ui/icons';
@@ -28,10 +26,10 @@ const links = [
     name: 'Social',
     href: '/social',
   },
-  {
-    name: 'Blog',
-    href: '/blog',
-  },
+  //{
+  //  name: 'Blog',
+  //  href: '/blog',
+  //},
 ]
 </script>
 
