@@ -40,7 +40,7 @@ const router = createRouter({
       path: "/blog",
       name: "Blog",
       component: BlogPage,
-      meta: { scene: 0 },
+      meta: { scene: 4 },
     },
   ]
 });

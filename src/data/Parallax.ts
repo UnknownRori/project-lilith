@@ -66,4 +66,12 @@ export const parallaxSceneData = [
       zoom: 2,
     },
   },
+  // City [4]
+  {
+    position: {
+      x: 0,
+      y: -500,
+      zoom: 1.2,
+    },
+  },
 ] as SceneData[];
