@@ -13,7 +13,7 @@ export const projectLists = [
   },
   {
     name: 'Rin',
-    description: 'Minimalistic PHP Framework inspired by Laravel elegantess',
+    description: 'Minimalistic PHP Framework inspired by Laravel elegantness',
     type: 'web',
     tags: ['Web', 'PHP', 'Framework'],
 
