@@ -6,10 +6,7 @@ export interface ImageData {
 }
 
 export interface SceneData {
-  start: number,
-  end: number,
-  startCamera: Camera2D,
-  endCamera: Camera2D,
+  position: Camera2D,
   active: boolean,
 }
 
