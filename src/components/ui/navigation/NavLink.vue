@@ -14,11 +14,11 @@ defineProps<{
     <span :class="cn(`absolute -bottom-1 left-0 z-10 h-[2px] w-0 bg-white/20 dark:bg-white
 duration-500`, isActive ? 'w-full bg-white ' : 'group-hover:w-full group-hover:bg-white ')"></span>
     <RouterLink :to="href" :class="`tracking dark:text-white ${isActive ? `font-bold text-white
-text-shadow-lg text-shadow-white/20` : ''}`">
+text-shadow-lg text-shadow-white/20 animate-pulse` : ''}`">
       <slot />
     </RouterLink>
 
     <span :class="cn(`absolute -bottom-1 right-0 z-10 h-[2px] w-0 bg-white/20 dark:bg-white
-duration-500`, isActive ? 'w-full bg-white ' : 'group-hover:w-full group-hover:bg-white ')"></span>
+duration-500`, isActive ? 'w-full bg-white animate-pulse' : 'group-hover:w-full group-hover:bg-white ')"></span>
   </div>
 </template>

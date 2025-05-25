@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onBeforeMount } from 'vue';
 import { BlinkTransition } from '@/components/ui/animation';
+import { useRoute } from 'vue-router';
 
 import { sleep } from '@/utils';
 
@@ -17,10 +18,8 @@ const emits = defineEmits<{
   (e: "done"): void;
 }>();
 
-const route = { path: "/" };
 const startTime = new Date();
-const currentPageFile =
-  route.path === "/" ? "/index.html" : `${route.name}.html`;
+const currentPageFile = `index.html`;
 const loadingContentShown = ref([] as Array<LoadingContentType>);
 const loadingContents = [
   { time: 0, text: "Booting..." },

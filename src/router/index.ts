@@ -1,5 +1,5 @@
 import { parallaxSceneData } from '@/data/Parallax';
-import { ProfilePage, ProjectsPage, SplashPage } from '@/pages';
+import { BlogPage, ProfilePage, ProjectsPage, ResumePage, SocialPage, SplashPage } from '@/pages';
 import useBackground from '@/stores/useBackground';
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -23,6 +23,24 @@ const router = createRouter({
       name: "Projects",
       component: ProjectsPage,
       meta: { scene: 1 },
+    },
+    {
+      path: "/resume",
+      name: "Resume",
+      component: ResumePage,
+      meta: { scene: 0 },
+    },
+    {
+      path: "/social",
+      name: "Social",
+      component: SocialPage,
+      meta: { scene: 3 },
+    },
+    {
+      path: "/blog",
+      name: "Blog",
+      component: BlogPage,
+      meta: { scene: 0 },
     },
   ]
 });

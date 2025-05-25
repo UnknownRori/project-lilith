@@ -58,4 +58,12 @@ export const parallaxSceneData = [
       zoom: 2,
     },
   },
+  // Left Lilith [3]
+  {
+    position: {
+      x: -400,
+      y: 280,
+      zoom: 2,
+    },
+  },
 ] as SceneData[];

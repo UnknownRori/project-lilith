@@ -3,8 +3,12 @@ import { ref } from 'vue';
 
 import NavLink from './NavLink.vue';
 import { cn } from '@/utils';
-import { Hamburger } from '@/components/ui/icons';
+//import { Hamburger } from '@/components/ui/icons';
 import { useRoute } from 'vue-router';
+
+defineProps<{
+  class?: string,
+}>();
 
 const route = useRoute();
 const links = [
@@ -15,6 +19,18 @@ const links = [
   {
     name: 'Projects',
     href: '/projects',
+  },
+  {
+    name: 'Resume',
+    href: '/resume',
+  },
+  {
+    name: 'Social',
+    href: '/social',
+  },
+  {
+    name: 'Blog',
+    href: '/blog',
   },
 ]
 </script>
