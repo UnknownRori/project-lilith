@@ -10,5 +10,5 @@ useParallaxBackground(
 </script>
 
 <template>
-  <canvas ref="canvasRef" class="block w-full h-full fixed top-0 left-0 z-[-1]"></canvas>
+  <canvas ref="canvasRef" class="block print:hidden w-full h-full fixed top-0 left-0 z-[-1]"></canvas>
 </template>

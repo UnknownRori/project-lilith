@@ -22,10 +22,10 @@ const links = [
     name: 'Resume',
     href: '/resume',
   },
-  {
-    name: 'Social',
-    href: '/social',
-  },
+  //{
+  //  name: 'Social',
+  //  href: '/social',
+  //},
   //{
   //  name: 'Blog',
   //  href: '/blog',
@@ -34,7 +34,7 @@ const links = [
 </script>
 
 <template>
-  <nav :class="cn('absolute w-full z-100', $props.class)" key='navbar'>
+  <nav :class="cn('print:hidden absolute w-full z-100', $props.class)" key='navbar'>
     <div class="flex justify-center items-center w-full gap-8 p-4">
       <ul class="flex flex-row gap-4">
         <li :key='link.name' v-for='link in links'>
