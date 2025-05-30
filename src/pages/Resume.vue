@@ -1,5 +1,5 @@
 <script lang='ts' setup>
-import { Github, Link, Mail, MapPin } from 'lucide-vue-next';
+import { Github, Link, Mail, MapPin, Printer } from 'lucide-vue-next';
 
 import { workExperience, education, project, generalKnowledge, programmingLanguage, spokenLanguage } from '@/data/Resume.ts';
 
@@ -7,13 +7,23 @@ import Tag from '@/components/resume-ui/Tag.vue';
 import WorkExperienceItem from '@/components/resume-ui/WorkExperienceItem.vue';
 import ProjectItem from '@/components/resume-ui/ProjectItem.vue';
 import EducationItem from '@/components/resume-ui/EducationItem.vue';
+
+function print() {
+  window.print();
+}
 </script>
 <template>
   <div class="w-screen flex justify-center items-center py-16 print:p-0 overflow-scroll">
     <div class="bg-white w-[210mm] h-[297mm] p-4 print:p-0 flex flex-col gap-1">
-      <h1 class="font-bold text-2xl">
-        Akbar Hendra Jaya — <span class="text-gray-500">UnknownRori</span>
-      </h1>
+      <div class="flex justify-between">
+        <h1 class="font-bold text-2xl">
+          Akbar Hendra Jaya — <span class="text-gray-500">UnknownRori</span>
+        </h1>
+        <button @click='print' class='print:hidden text-gray-400 hover:text-gray-800
+          duration-500 cursor-pointer'>
+          <Printer class='w-6 h-6' />
+        </button>
+      </div>
       <div class="flex gap-4">
         <a href="https://github.com/UnknownRori" class='flex gap-2 text-sm'>
           <Github class="text-black w-4" /> <span class='text-blue-500'>UnknownRori</span>
