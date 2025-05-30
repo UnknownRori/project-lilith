@@ -69,7 +69,7 @@ onBeforeMount(async () => {
 <template>
   <BlinkTransition>
     <div v-show="$props.show" id="loading" class="absolute inset-0 z-[10000] flex h-screen w-screen flex-col items-center justify-center
-      gap-2 bg-black bg-[url(assets/icons/grid.svg)] font-poet">
+      gap-2 bg-black bg-[url(icons/grid.svg)] font-poet">
       <div class="absolute inset-0 z-10 w-screen bg-gradient-to-b from-transparent from-40% to-black to-80%"></div>
       <h2 class="text-lg text-white">Please wait warmly....</h2>
       <div class="relative w-[24vw] rounded-md bg-cod-gray-950 py-2 sm:w-[82vw] md:w-[60vw] lg:w-[42vw]">

@@ -15,7 +15,7 @@ function print() {
 <template>
   <div class="w-screen flex justify-center items-center py-16 print:p-0 overflow-scroll">
     <div class="relative bg-white w-[210mm] h-[297mm] p-4 print:p-0 flex flex-col gap-1">
-      <div class="absolute inset-0 w-full h-full bg-[url(./assets/img/me.png)] bg-cover bg-center
+      <div class="absolute inset-0 w-full h-full bg-[url(img/me.png)] bg-cover bg-center
         opacity-5 pointer-events-none"></div>
       <div class="flex justify-between">
         <h1 class="font-bold text-2xl">
