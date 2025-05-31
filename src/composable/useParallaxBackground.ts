@@ -5,7 +5,7 @@ import { onMounted, type Ref } from 'vue';
 
 function loadImages(layers: ImageData[]): Promise<void[]> {
   return Promise.all(layers.map(layer => {
-    return new Promise<void>((resolve, fail) => {
+    return new Promise<void>((resolve) => {
       if (Array.isArray(layer.src)) {
         layer.image = [];
         layer.count = 0;
@@ -20,7 +20,6 @@ function loadImages(layers: ImageData[]): Promise<void[]> {
         img.src = layer.src;
         img.onload = () => {
           layer.image = img;
-          resolve();
         }
       }
       resolve();

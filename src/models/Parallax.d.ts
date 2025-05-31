@@ -1,18 +1,12 @@
-export type ImageData = {
-  src: string,
-  scrollSpeedX: number,
-  scrollSpeedY: number,
-  image: HTMLImageElement | null,
-} | {
-  src: string[],
+export interface ImageData {
+  src: string | string[],
   scrollSpeedX: number,
   scrollSpeedY: number,
   fps: number,
   count: number,
   active: number,
-  image: HTMLImageElement[] | null,
+  image: HTMLImageElement | HTMLImageElement[] | null,
 }
-
 export interface SceneData {
   position: Camera2D,
   active: boolean,

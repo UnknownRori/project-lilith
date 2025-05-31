@@ -1,5 +1,4 @@
 import type { ImageData, SceneData } from "@/models/Parallax";
-import { lerp } from "@/utils";
 import { defineStore } from "pinia";
 import { onMounted, onUnmounted } from "vue";
 import useParallaxCamera from "./useParallaxCamera";
