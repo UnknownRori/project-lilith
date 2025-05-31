@@ -1,8 +1,16 @@
-export interface ImageData {
+export type ImageData = {
   src: string,
   scrollSpeedX: number,
   scrollSpeedY: number,
   image: HTMLImageElement | null,
+} | {
+  src: string[],
+  scrollSpeedX: number,
+  scrollSpeedY: number,
+  fps: number,
+  count: number,
+  active: number,
+  image: HTMLImageElement[] | null,
 }
 
 export interface SceneData {

@@ -1,17 +1,29 @@
-import { parallaxImageData, parallaxSceneData } from '@/data/Parallax.ts';
+import { parallaxImageData } from '@/data/Parallax.ts';
 import type { ImageData } from '@/models/Parallax';
 import useBackground from '@/stores/useBackground';
 import { onMounted, type Ref } from 'vue';
 
 function loadImages(layers: ImageData[]): Promise<void[]> {
   return Promise.all(layers.map(layer => {
-    return new Promise<void>((resolve) => {
-      const img = new Image();
-      img.src = layer.src;
-      img.onload = () => {
-        layer.image = img
-        resolve()
+    return new Promise<void>((resolve, fail) => {
+      if (Array.isArray(layer.src)) {
+        layer.image = [];
+        layer.count = 0;
+        for (const src of layer.src) {
+          const img = new Image();
+          img.src = src;
+          layer.image.push(img);
+        }
+        resolve();
+      } else {
+        const img = new Image();
+        img.src = layer.src;
+        img.onload = () => {
+          layer.image = img;
+          resolve();
+        }
       }
+      resolve();
     })
   }))
 }
@@ -24,6 +36,7 @@ export default function useParallaxBackground(canvas: Ref<HTMLCanvasElement>) {
     for (const image of parallaxImageData) {
       parallax.draw(image);
     }
+    parallax.drawRain();
     parallax.drawVignette();
     requestAnimationFrame(loop);
   }
